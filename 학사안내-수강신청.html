@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        main {
+            width: 100%;
+            height: auto;
+        }
+
+        main>div>* {
+            width: 1100px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        main>div:nth-child(1) {
+            width: 100%;
+            height: 36px;
+            background-color: #D5D5D5;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+        }
+
+        main>div:nth-child(1)>div {
+            width: 1100px;
+            margin: 0 auto;
+            font-size: 12px;
+            color: #666;
+        }
+
+        main>div:nth-child(2) {
+            width: 100%;
+            height: 500px;
+            margin-top: 50px;
+            box-sizing: border-box;
+        }
+
+        .main-content {
+            flex: 1;
+        }
+
+        main .top {
+            height: 60px;
+            border-bottom: 2px solid #333;
+            display: flex;
+            align-items: center;
+        }
+
+        main .bottom {
+            width: 100%;
+        }
+
+        main .bottom>p {
+            margin-top: 20px;
+        }
+
+        main .content-wrapper {
+            display: flex;
+            gap: 60px;
+        }
+
+        main .sidebar {
+            width: 200px;
+        }
+
+        main .sidebar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        main .sidebar li {
+            border-bottom: 1px solid #eee;
+        }
+
+        main .sidebar li a {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+        }
+
+        main .sidebar li a:hover {
+            background-color: #f8f9fa;
+            color: #4A90E2;
+        }
+
+        main .sidebar li.active {
+            background-color: #4A90E2;
+        }
+
+        main .sidebar li.active a {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        main .info {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        main .info img {
+            width: 16px;
+            height: auto;
+            margin-right: 5px;
+            /* 이미지와 텍스트 간격 */
+        }
+
+        main .bold-ment img {
+            vertical-align: middle;
+        }
+
+        main .bold-ment .span-bold {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 3px;
+            /* 이미지와 텍스트 간 적당한 간격 */
+            font-weight: 500;
+            font-size: 18px;
+            color: #145074;
+        }
+
+        main .ment1 {
+            display: flex;
+            font-size: 16px;
+            font-weight: 350;
+            color: #666666;
+            font-family: Noto Sans KR;
+            font-style: DemiLight;
+            line-height: 24px;
+            letter-spacing: -0.5px;
+            vertical-align: middle;
+
+        }
+
+        main .ment2 {
+            display: flex;
+            font-size: 16px;
+            font-weight: 350;
+            color: #333333;
+            font-family: Noto Sans KR;
+            font-style: DemiLight;
+            line-height: 24px;
+            letter-spacing: -0.5px;
+            vertical-align: middle;
+
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div>
+            <div class="info">
+                <span id="test">
+                    <img src="./images/ico-home.png" alt="홈 버튼">
+                    > 학사안내 > 수강신청
+                </span>
+            </div>
+        </div>
+        <div>
+            <div class="content-wrapper">
+                <div class="sidebar">
+                    <div class="top">
+                        <h1>학사안내</h1>
+                    </div>
+                    <div class="bottom">
+                        <ul>
+                            <li class="#"><a href="./학사안내-공지사항.html">공지사항</a></li>
+                            <li class="#"><a href="./학사안내-학사일정.html">학사일정</a></li>
+                            <li class="active"><a href="./학사안내-수강신청.html">수강신청</a></li>
+                            <li><a href="#">성적</a></li>
+                            <li><a href="#">수료 및 졸업</a></li>
+                            <li><a href="#">자주 묻는 질문</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="main-content">
+                    <div class="top">
+                        <h2>수강신청</h2>
+                    </div>
+                    <div class="bold-ment">
+                        <img src="./images/bullet-h4.png" alt="bullet-h4 이미지">
+                        <h4 class="span-bold">수강신청기간</h4>
+                        <div class="ment1">
+                            - 매학기 수강신청은 개강 전에 실시, 학생은 수강신청 공고를 충분히 숙지한 다음, 수강신청 기간에 인터넷을 통해 신청과목을 입력<br>
+                            - 필요한 경우 학과사무실의 학사상담이나 지도교수의 지도를 받을 수 있으며, 반드시 학년별 지정된 날짜에 수강신청 완료<br>
+                            - 자세한 설명은 학사일정 공지사항 게시판 참조
+                        </div>
+                        <img src="./images/bullet-h4.png" alt="bullet-h4 이미지">
+                        <h4 class="span-bold">수강신청 학점</h4>
+                        <div class="ment2">
+                            - 학기당 이수학점 : 18학점 이내(논문과목 별도) [대학 학칙 제20조]
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <p>컨텐츠 내용 구역입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

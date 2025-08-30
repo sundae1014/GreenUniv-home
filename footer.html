@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        footer {
+            width: 100%;
+            background-color: #1e2430;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* 공통 내부 영역 */
+        footer .inner {
+            width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* terms */
+        footer .terms-wrap {
+            border-bottom: 1px solid #333;
+            padding: 14px 0;
+        }
+
+        footer .terms-wrap ul {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        footer .terms-wrap li a {
+            color: #eee;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        footer .terms-wrap li a:hover {
+            color: #fff;
+        }
+
+        /* info 영역 */
+        footer .info-wrap {
+            padding: 20px 0;
+        }
+
+        footer .info-wrap .inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        footer .info-left {
+            display: flex;
+            gap: 20px;
+        }
+
+        footer .info-left img {
+            height: 40px;
+            width: auto;
+        }
+
+        footer .info-left .text {
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        footer .info-left .text span {
+            display: block;
+            margin-top: 8px;
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        /* 주요사이트 드롭다운 */
+        footer .site {
+            position: relative;
+        }
+
+        footer .site select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding: 8px 40px 8px 12px;
+            background-color: #121820;
+            border: none;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        footer .site::after {
+            content: "▼";
+            font-size: 12px;
+            color: #bbb;
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <footer>
+        <!-- 상단 메뉴 -->
+        <div class="terms-wrap">
+            <div class="inner">
+                <ul>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">통합정보시스템</a></li>
+                    <li><a href="#">학사일정</a></li>
+                    <li><a href="#">주요민원 연락처</a></li>
+                    <li><a href="#">교내공지사항</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 학교 정보 + 주요사이트 -->
+        <div class="info-wrap">
+            <div class="inner">
+                <div class="info-left">
+                    <img src="./images/footer_logo.png" alt="그린대학교 로고">
+                    <div class="text">
+                        그린대학교<br>
+                        [12345] 부산광역시 부산진구 부전대로 123 그린대학교<br>
+                        대표전화 : 051-123-1000 | 입학안내 : 051-123-1302 | 팩스 : 051-123-3333<br>
+                        <span>copyright ©Green University All rights reserved.</span>
+                    </div>
+                </div>
+                <div class="site">
+                    <select>
+                        <option>주요사이트 선택</option>
+                        <option>도서관</option>
+                        <option>학생포털</option>
+                        <option>취업정보센터</option>
+                        <option>국제교류센터</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

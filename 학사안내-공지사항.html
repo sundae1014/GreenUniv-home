@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+		main {
+			width: 100%;
+			height: auto;
+		}
+
+		main>div>* {
+			width: 1100px;
+			height: 100%;
+			margin: 0 auto;
+		}
+
+		main>div:nth-child(1) {
+			width: 100%;
+			height: 36px;
+			background-color: #D5D5D5;
+			box-sizing: border-box;
+			display: flex;
+			align-items: center;
+			padding-left: 20px;
+		}
+
+		main>div:nth-child(1)>div {
+			width: 1100px;
+			margin: 0 auto;
+			font-size: 12px;
+			color: #666;
+		}
+
+		main>div:nth-child(2) {
+			width: 100%;
+			height: 500px;
+			margin-top: 50px;
+			box-sizing: border-box;
+		}
+
+		.main-content {
+			flex: 1;
+		}
+
+		main .top {
+			height: 60px;
+			border-bottom: 2px solid #333;
+			display: flex;
+			align-items: center;
+		}
+
+		main .bottom {
+			width: 100%;
+		}
+
+		main .bottom>p {
+			margin-top: 20px;
+		}
+
+		main .content-wrapper {
+			display: flex;
+			gap: 60px;
+		}
+
+		main .sidebar {
+			width: 200px;
+		}
+
+		main .sidebar ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			background-color: #fff;
+		}
+
+		main .sidebar li {
+			border-bottom: 1px solid #eee;
+		}
+
+		main .sidebar li a {
+			display: block;
+			padding: 15px 20px;
+			text-decoration: none;
+			color: black;
+			font-size: 14px;
+		}
+
+		main .sidebar li a:hover {
+			background-color: #f8f9fa;
+			color: #4A90E2;
+		}
+
+		main .sidebar li.active {
+			background-color: #4A90E2;
+		}
+
+		main .sidebar li.active a {
+			color: #fff;
+			font-weight: 500;
+		}
+
+		main .info {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+		}
+
+		main .info img {
+			width: 16px;
+			height: auto;
+			margin-right: 5px;
+			/* 이미지와 텍스트 간격 */
+		}
+
+		/* 검색창 컨테이너 */
+		main .search-container {
+			display: flex;
+			justify-content: flex-end;
+			padding-top: 15px;
+		}
+
+		main .search-div {
+			display: flex;
+			gap: 5px;
+			flex-wrap: wrap;
+			align-items: center;
+			max-width: 1200px;
+			width: auto;
+			box-sizing: border-box;
+			flex-basis: auto;
+			max-width: 700px;
+
+
+		}
+
+		main .search-div form {
+			display: flex;
+			gap: 5px;
+			flex-wrap: wrap;
+			align-items: center;
+		}
+
+		/* select, input, button 기본 스타일 */
+		.search-div select,
+		.search-div input[type="text"] {
+			flex: 1;
+			min-width: 150px;
+			padding: 8px 12px;
+			font-size: 14px;
+			border: 1px solid #ccc;
+			box-sizing: border-box;
+		}
+
+		main .search-div input[type="text"] {
+			margin-right: 0;
+			/* 버튼과 간격조정 위해 margin 제거 */
+			/* 버튼쪽 테두리 겹침 방지 */
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+
+		main .search-div button {
+			padding: 9px 20px;
+			background-color: #3f97f6;
+			border: none;
+			border-radius: 2px;
+			color: white;
+			font-weight: 600;
+			cursor: pointer;
+			white-space: nowrap;
+		}
+
+		/* notice-list-wrapper */
+		main .notice-list-wrapper {
+
+			max-width: 1200px;
+			margin: 10px auto 15px auto;
+			border-top: 2px solid black;
+			width: 100%;
+			box-sizing: border-box;
+
+		}
+
+		main .notice-list table {
+			width: 100%;
+			border-collapse: collapse;
+			text-align: center;
+		}
+
+		main .notice-list thead th {
+			background-color: #f0f0f0;
+			padding: 12px 8px;
+			border-bottom: 1px solid #ccc;
+			font-weight: 600;
+		}
+
+		/* 테이블 바디 셀 */
+		main .notice-list tbody td {
+			padding: 12px 8px;
+			border-bottom: 1px solid #eee;
+			vertical-align: middle;
+			word-break: break-word;
+			/* 제목 등 긴 텍스트 줄바꿈 */
+		}
+
+		/* 페이징 컨테이너 최상위  */
+		main .page-wrapper {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding-top: 15px;
+			margin-top: 30px;
+			gap: 5px;
+		}
+
+		/* 페이징 요소들을 감싸는 실제 컨테이너 (버튼, 이미지 정렬) */
+		main .page-wrapper .page {
+			display: flex;
+			gap: 5px;
+			align-items: center;
+		}
+
+		main .page-wrapper .page-btn.active {
+			background-color: #4a90e2;
+			color: white;
+			border-color: #4a90e2;
+			font-weight: bold;
+			cursor: default;
+		}
+
+		main .page-wrapper .page-btn:hover:not(.active) {
+			background-color: #f2f2f2;
+		}
+
+		/* 페이징 버튼 (1, 2, 3...) */
+		main .page-wrapper .page-btn {
+			width: 32px;
+			height: 32px;
+			border: 1px solid #dedede;
+			background-color: white;
+			color: #333;
+			font-size: 14px;
+			font-weight: normal;
+			cursor: pointer;
+			border-radius: 3px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			box-sizing: border-box;
+			
+			
+		}
+
+		/* 페이징 화살표 이미지 (<<, <, >, >>) */
+		main .page-wrapper .pagination-arrow {
+			width: 32px;
+			height: 32px;
+			border: 1px solid #dedede;
+			box-sizing: border-box;
+			cursor: pointer;
+			border-radius: 3px;
+			object-fit: contain;
+			padding: 10px;
+		}
+
+		/* 비활성화된 화살표 이미지 (예: 첫 페이지에서 '이전' 버튼) */
+		main .page-wrapper .pagination-arrow.disabled {
+			opacity: 0.5;
+			/* 투명도 낮춰 비활성 표시 */
+			cursor: not-allowed;
+			/* 클릭 불가 마우스 모양 */
+			background-color: #f8f8f8;
+			/* 배경색 살짝 어둡게 */
+		}
+	</style>
+</head>
+
+<body>
+	<main>
+		<div>
+			<div class="info">
+				<span id="test">
+					<img src="./images/ico-home.png" alt="홈 버튼">
+					> 학사안내 > 공지사항
+				</span>
+			</div>
+		</div>
+		<div>
+			<div class="content-wrapper">
+				<div class="sidebar">
+					<div class="top">
+						<h1>학사안내</h1>
+					</div>
+					<div class="bottom">
+						<ul>
+							<li class="active"><a href="./학사안내-공지사항.html">공지사항</a></li>
+							<li><a href="./학사안내-학사일정.html">학사일정</a></li>
+							<li><a href="./학사안내-수강신청.html">수강신청</a></li>
+							<li><a href="#">성적</a></li>
+							<li><a href="#">수료 및 졸업</a></li>
+							<li><a href="#">자주 묻는 질문</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="main-content">
+					<div class="top">
+						<h2>공지사항</h2>
+					</div>
+					<!-- 🔍 공지사항 검색  시작 -->
+					<div class="search-container">
+						<div class="search-div">
+							<select name="category">
+								<option value="all">전체</option>
+								<option value="title">제목</option>
+								<option value="author">작성자</option>
+							</select>
+							<input type="text" name="keyword" placeholder="검색어를 입력하세요">
+							<button type="submit">검색</button>
+						</div>
+					</div>
+
+					<!-- 📋 공지사항 목록 테이블 시작 -->
+					<div class="notice-list-wrapper">
+						<div class="notice-list">
+							<table>
+								<thead>
+									<tr>
+										<th>번호</th>
+										<th>제목</th>
+										<th>작성자</th>
+										<th>작성일</th>
+										<th>조회</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>2023학년도 신입생 수강 신청 안내 및 오리엔테이션 일정</td>
+										<td>담당자</td>
+										<td>23-04-09</td>
+										<td>160</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>2023학년도 신입생 오리엔테이션 일정 안내</td>
+										<td>담당자</td>
+										<td>23-04-09</td>
+										<td>160</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>[공지]2023년 강의평가 일정 및 방법 안내</td>
+										<td>담당자</td>
+										<td>23-04-09</td>
+										<td>160</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+
+					<div class="page-wrapper">
+						<div class="page">
+							<img src="./images/btn-first-page.png" alt="첫 페이지" class="pagination-arrow first">
+							<img src="./images/btn-prev-page.png" alt="이전 페이지" class="pagination-arrow prev">
+							<button class="page-btn active">1</button>
+							<button class="page-btn">2</button>
+							<button class="page-btn">3</button>
+							<img src="./images/btn-next-page.png" alt="다음 페이지" class="pagination-arrow next">
+							<img src="./images/btn-last-page.png" alt="마지막 페이지" class="pagination-arrow last">
+							<!-- <p>컨텐츠 내용 구역입니다.</p> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

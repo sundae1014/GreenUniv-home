@@ -1,0 +1,172 @@
+a{
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover{
+            text-decoration: underline;
+        }
+
+        ul, ol{
+            list-style: none;
+        }
+
+        main {
+            width: 100%;
+            height: auto;
+        }
+
+        main>div>* {
+            width: 1100px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        main>div:nth-child(1) {
+            width: 100%;
+            height: 36px;
+            background-color: #edf2f6;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+        }
+
+        main>div:nth-child(1)>div {
+            width: 1100px;
+            margin: 0 auto;
+            font-size: 12px;
+            color: #666;
+        }
+
+        main>div:nth-child(2) {
+            width: 100%;
+            height: 500px;
+            margin-top: 50px;
+            box-sizing: border-box;
+        }
+        
+        main .content-wrapper {
+            display: flex;
+            gap: 60px;
+        }
+
+        main .sidebar {
+            width: 200px;
+        }
+
+        main .info {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        main .info img {
+            width: 16px;
+            height : auto;
+            margin-right: 5px;
+            /* 이미지와 텍스트 간격 */
+        }
+
+        main .login{
+            width: 500px;
+        }
+
+        main .login > .loginTop{
+            color: #5198f9;
+        }
+
+        main > .loginTop span{
+            font-size: 16pt;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        main .loginTop p{
+            margin-top: 3px;
+            font-size: 10pt;
+        }
+
+        main .loginMid{
+            margin-top: 10px;
+        }
+        
+        main .loginMid .loginBox > .type li{
+            float: left;
+            margin-right: 45px;
+            margin-left: -40px;
+        }
+
+        main .loginMid .loginBox > .type .checkbox{
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: none;
+            border-radius: 50%;
+            background: #dfdfdf;
+            display: inline-grid;
+            place-content: center;
+            cursor: pointer;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        main .loginMid > .loginBox > .type .checkbox:checked::before{
+            content: "✓";
+            width: 12px;
+            height: 12px;
+            line-height: 1;
+            transform: translateY(-5px);
+            color: blue;
+            font-size: 20px;
+        }
+
+        main .loginMid a{
+            float: right;
+        }
+
+        main .loginMid > .loginBox{
+            width: 100%;
+            height: 100%;            
+            box-sizing: border-box;
+        }
+
+        main .loginMid > .loginBox .idBox, .passBox{
+            width: 500px;
+            height: 40px;
+            margin-top: 5px;
+            border: 1px solid #cccccc;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        main .loginMid > .loginBox .loginButton{
+            margin-top: 5px;
+            width: 500px;
+            height: 40px;
+            background-color: #5198f9;
+            border: 0;
+            color: white;
+            font-weight: 100;
+            font-size: 12pt;
+        }
+
+        main .loginMid > .loginBox .loginButton:hover{
+            text-decoration: underline;
+        }
+
+        main .loginInfo{
+            width: 700px;
+            margin-top: 20px;
+        }
+
+        main .loginInfo h4{
+            font-size: 16px;
+            color: #215075;
+        }
+
+        main .loginInfo p{
+            font-size: 14px;
+            color: #666666;
+            margin-top: 8px;
+        }

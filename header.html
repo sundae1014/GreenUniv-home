@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* header */
+        header {
+            width: 100%;
+            height: auto;
+        }
+
+        header>div {
+            width: 100%;
+        }
+
+        header>div>* {
+            width: 1100px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        /* top */
+        header>div:nth-child(1) {
+            height: 36px;
+            background-color: #4a95f5;
+            box-sizing: border-box;
+        }
+
+        .top>p {
+            float: right;
+            margin-top: 5px;
+        }
+
+        .top>p>a {
+            text-decoration: none;
+            font-size: 13px;
+            color: #ffffff;
+        }
+
+        /* nav */
+        header>div:nth-child(2) {
+            height: 70px;
+        }
+
+        /* nav와 img를 가로 배치를 위한 컨테이너 */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 1100px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .nav-container img {
+            height: 40px;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        nav>ul {
+            width: 100%;
+            height: 54px;
+            display: flex;
+        }
+
+        nav>ul>li {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 40px;
+            color: black;
+            /* 기본 텍스트 색상 */
+            cursor: pointer;
+        }
+
+        /* 메인 메뉴 hover 효과 - 파란색으로 변경 */
+        nav>ul>li:hover {
+            color: #4a95f5;
+        }
+
+        nav>ul>li>a,
+        nav>ul>li {
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* 서브메뉴 - 세로 박스 형태 */
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #4a95f5;
+            min-width: 160px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            margin-top: 5px;
+        }
+
+        .submenu li {
+            padding: 8px 15px;
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .submenu li:last-child {
+            border-bottom: none;
+        }
+
+        .submenu li a {
+            text-decoration: none;
+            color: #fff !important;
+            display: block;
+            width: 100%;
+        }
+
+        .submenu li:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .submenu li:hover a {
+            color: #fff !important;
+        }
+
+        /* 메인 메뉴에 마우스 오버 시 서브메뉴 표시 */
+        nav li:hover .submenu {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="top">
+                <p>
+                    <a href="#">HOME&nbsp&nbsp&nbsp|</a>
+                    <a href="#">&nbsp&nbsp&nbsp사이트맵&nbsp&nbsp &nbsp|</a>
+                    <a href="#">&nbsp&nbsp&nbsp로그인&nbsp&nbsp&nbsp|</a>
+                    <a href="#">&nbsp&nbsp&nbsp학생지원</a>
+                </p>
+            </div>
+        </div>
+        <!-- 로고 + 네비게이션 -->
+        <div>
+            <div class="nav-container">
+                <a href="#"><img src="./images/header_logo.png" alt="학교 로고">
+                    <nav>
+                        <ul>
+                            <li>대학소개
+                                <ul class="submenu">
+                                    <li><a href="#">총장 인사말</a></li>
+                                    <li><a href="#">교육이념</a></li>
+                                    <li><a href="#">연혁</a></li>
+                                    <li><a href="#">조직도</a></li>
+                                    <li><a href="#">오시는길</a></li>
+                                </ul>
+                            </li>
+                            <li>입학안내
+                                <ul class="submenu">
+                                    <li><a href="#">공지사항</a></li>
+                                    <li><a href="#">수시모집</a></li>
+                                    <li><a href="#">정시모집</a></li>
+                                    <li><a href="#">편입학</a></li>
+                                    <li><a href="#">입학상담</a></li>
+                                </ul>
+                            </li>
+                            <li>대학·대학원
+                                <ul class="submenu">
+                                    <li><a href="#">인문사회대학</a></li>
+                                    <li><a href="#">자연과학대학</a></li>
+                                    <li><a href="#">공과대학</a></li>
+                                    <li><a href="#">사범대학</a></li>
+                                    <li><a href="#">대학원</a></li>
+                                </ul>
+                            </li>
+                            <li>학사안내
+                                <ul class="submenu">
+                                    <li><a href="#">공지사항</a></li>
+                                    <li><a href="#">학사일정</a></li>
+                                    <li><a href="#">수강신청</a></li>
+                                    <li><a href="#">성적</a></li>
+                                    <li><a href="#">수료 및 졸업</a></li>
+                                    <li><a href="#">자주묻는질문</a></li>
+                                </ul>
+                            </li>
+                            <li>대학생활
+                                <ul class="submenu">
+                                    <li><a href="#">학생회소개</a></li>
+                                    <li><a href="#">동아리/스터디</a></li>
+                                    <li><a href="#">식단안내</a></li>
+                                    <li><a href="#">갤러리</a></li>
+                                </ul>
+                            </li>
+                            <li>커뮤니티
+                                <ul class="submenu">
+                                    <li><a href="#">공지사항</a></li>
+                                    <li><a href="#">뉴스 및 일정</a></li>
+                                    <li><a href="#">취업정보</a></li>
+                                    <li><a href="#">자유게시판</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+            </div>
+        </div>
+    </header>
+</body>
+
+</html>

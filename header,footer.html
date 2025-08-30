@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        @font-face {
+        font-family: 'NotoSansKR';
+        src: url('greendae/font/NotoSansKR-Light.woff2') format('woff2'),
+             url('greendae/font/NotoSansKR-Light.woff') format('woff'),
+             url('greendae/font/NotoSansKR-Light.otf') format('opentype');
+        font-weight: 300; /* Light */
+        font-style: normal;
+        }
+
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* header */
+        header {
+            width: 100%;
+            height: auto;
+        }
+        
+        .nav-section{
+            background-color: #00518c;
+            height: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-a {
+            width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .nav-a a {
+            font-family: 'NotoSansKR', sans-serif;
+            font-weight: 300;
+            color: #ccc;
+            font-size: 12px;
+            text-decoration: none;
+        }
+        .nav-img-section{
+            background-color: #1f2838;
+            height: 90px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-img {
+            width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* footer */
+        footer{
+            margin-top: 500px;  /* 나중에 auto로  */
+            background-color: #1f2838;
+            height: 60px;
+            display: flex;
+            align-items: center;
+        }
+        footer .text{
+            width: 1400px;
+            margin: 0 auto;
+            font-family: 'NotoSansKR', sans-serif;
+            font-weight: 300;
+            color: #ccc;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <nav class="nav-section">
+            <div class="nav-a">
+                <a href="#">HOME&nbsp&nbsp&nbsp|</a>
+                <a href="#">&nbsp&nbsp&nbsp사이트맵&nbsp&nbsp&nbsp|</a>
+                <a href="#">&nbsp&nbsp&nbsp로그아웃</a>
+            </div>
+            </nav>
+            <div class="nav-img-section">
+            <div class="nav-img">
+                <img src="greendae/images/admin_logo.png" alt="학사관리시스템 로고">
+            </div>
+        </div>
+    </header>
+    <footer>
+        <div class="text">
+            Copyright ©Green University All rights reserved. ADMINISTRATOR Version 1.4.1
+        </div>
+    </footer>
+</body>
+</html>

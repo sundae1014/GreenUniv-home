@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            } 
+        
+        table, th, td { 
+            border: none; 
+            } 
+        tr + tr td, thead tr th, tbody tr td { 
+            border-top: 1px solid #ccc; 
+        }
+        caption { 
+            caption-side: top;  
+            text-align: left;
+            padding: 8px 0; font-weight: 700; 
+        }
+        .container{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 100px 307px 350px 362px;
+            gap :20px
+        }
+        #box1, #box2 { grid-column: 1 / -1; } 
+    </style>
+</head>
+<body>
+    <main>
+        <div>
+            <h3>운영현황 메인</h3>
+        </div>
+        <div class="container">
+            <table border="1" id="box1">
+                <caption><img src="greendae/images/bullet-h4.png">대학 운영 현황</caption>
+                <tr>
+                    <td>개설학과</td>
+                    <td>개설강좌</td>
+                    <td>전체교수</td>
+                    <td>임직원</td>
+                    <td>학생</td>
+                    <td>휴학생</td>
+                    <td>대학원생</td>
+                    <td>졸업생</td>
+                </tr>
+            </table>
+            <table border="1" id="box2">
+                <caption><img src="greendae/images/bullet-h4.png">교육 운영 현황</caption>
+                <tr>
+                    <td>학과</td>
+                    <td>과목코드</td>
+                    <td>과목명</td>
+                    <td>학년</td>
+                    <td>담당교수</td>
+                    <td>구분</td>
+                    <td>학점</td>
+                    <td>강의장</td>
+                    <td>수강인원</td>
+                    <td>수강률</td>
+                </tr>
+            </table>
+            <table border="1" id="box3">
+                <caption><img src="greendae/images/bullet-h4.png">학년별 학생 현황</caption>
+                <tr>
+                    <td>학년</td>
+                    <td>재학생</td>
+                    <td>휴학생</td>
+                    <td>전체</td>
+                </tr>
+            </table>
+            <table border="1" id="box4">
+                <caption><img src="greendae/images/bullet-h4.png">학과별 학생 현황</caption>
+                <tr>
+                    <td>학과</td>
+                    <td>재학생</td>
+                    <td>휴학생</td>
+                    <td>전체</td>
+                </tr>
+            </table>
+            <table border="1" id="box5">
+                <caption><img src="greendae/images/bullet-h4.png">학사안내 공지사항</caption>
+                <tr>
+                    <td>번호</td>
+                    <td>제목</td>
+                    <td>작성자</td>
+                    <td>작성일</td>
+                </tr>
+            </table>
+            <table border="1" id="box6">
+                <caption><img src="greendae/images/bullet-h4.png">입학상담</caption>
+                <tr>
+                    <td>번호</td>
+                    <td>제목</td>
+                    <td>작성일</td>
+                    <td>상태</td>
+                </tr>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

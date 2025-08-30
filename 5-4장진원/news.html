@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+            /* 구분(카테고리) 뱃지 스타일 */
+        .notice-table .category1,
+        .notice-table .category2 {
+            
+            display: inline-block;
+            padding: 6px 8px; /* 위아래, 좌우 패딩 */
+            border-radius: 1px; /* 둥근 모서리 */
+            font-size: 11px;
+            font-weight: 300;
+            color: white; /* 글자색 */
+        }
+
+        /* 각 카테고리별 배경색 */
+        .notice-table .category1 {
+            background-color: #4383d6; /* 기본 파란색 (예시) */
+            
+        }
+
+        /* 개별 카테고리 스타일 (이미지에 맞춰 색상 변경) */
+        .notice-table .category2 { /* 공지 */
+            background-color: #991539;
+        }
+
+
+        .notice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .notice-table th,
+        .notice-table td {
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+        }
+                /* 제목 셀의 텍스트를 왼쪽으로 정렬하고 패딩 추가 */
+        .notice-table td:nth-child(3) {
+            text-align: left; /* 왼쪽 정렬 */
+            padding-left: 10px; /* 왼쪽 패딩 추가 */
+        }
+
+
+        /* 제목 셀의 텍스트를 왼쪽으로 정렬하고 패딩 추가 */
+        .notice-table td:nth-child(3) {
+            text-align: left; /* 왼쪽 정렬 */
+            padding-left: 10px; /* 왼쪽 패딩 추가 */
+        }
+
+       .notice-table td:nth-child(6) {
+            padding-inline: 25px; /* 왼쪽 패딩 추가 */
+        }
+        /* 메인 컨텐츠 상단 섹션 - 제목과 검색창을 양쪽 끝으로 배치 */
+        main .top {
+            height: 60px;
+            border-bottom: 2px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* 추가 */
+        }
+
+        /* 검색 상자 스타일 */
+        .search-box {
+            display: flex; /* 추가 */
+            align-items: center; /* 추가 */
+            gap: 5px; /* 추가: 요소 간 간격 */
+        }
+
+        /* 검색 드롭다운 스타일 */
+        .search-box select {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #555;
+            height: 36px;
+            margin-left: auto;
+        }
+
+        /* 검색 입력창 스타일 */
+        .search-box input[type="text"] {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+            font-size: 14px;
+            height: 36px;
+            box-sizing: border-box; /* 패딩과 보더가 너비에 포함되도록 설정 */
+        }
+
+        /* 검색 버튼 스타일 */
+        .search-box button {
+            background-color: #4A90E2; /* 버튼 배경색 */
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            height: 36px;
+        }
+        .new-icon {
+            /* 이미지와 텍스트의 수직 정렬을 위해 vertical-align 속성을 사용합니다. */
+            vertical-align: middle;
+        }
+        /* 공지사항 테이블 스타일 */
+        .notice-table {
+            width: 100%;
+            border-collapse: collapse; /* 셀 경계선을 합쳐서 깔끔하게 만듭니다. */
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .notice-table th,
+        .notice-table td {
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .notice-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #333;
+            border-top: 2px solid #333;
+        }
+
+        /* 페이지네이션 스타일 */
+        .pagination {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .pagination a {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 0 4px;
+            text-decoration: none;
+            color: #4A90E2;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .pagination a:hover {
+            background-color: #f2f2f2;
+        }
+
+        /* 현재 페이지 강조 */
+        .pagination a.active {
+            background-color: #4A90E2;
+            color: white;
+            border: 1px solid #4A90E2;
+        }
+        /* 중앙컨텐츠 */
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* header */
+        header {
+            width: 100%;
+            height: auto;
+        }
+
+        header>div {
+            width: 100%;
+        }
+
+        header>div>* {
+            width: 1100px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        /* top */
+        header>div:nth-child(1) {
+            height: 36px;
+            background-color: #4a95f5;
+            box-sizing: border-box;
+        }
+
+        .top>p {
+            float: right;
+            margin-top: 5px;
+        }
+
+        .top>p>a {
+            text-decoration: none;
+            font-size: 13px;
+            color: #ffffff;
+        }
+
+        /* nav */
+        header>div:nth-child(2) {
+            height: 70px;
+        }
+
+        /* nav와 img를 가로 배치를 위한 컨테이너 */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 1100px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .nav-container img {
+            height: 40px;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        nav>ul {
+            width: 100%;
+            height: 54px;
+            display: flex;
+        }
+
+        nav>ul>li {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 40px;
+            color: black;
+            /* 기본 텍스트 색상 */
+            cursor: pointer;
+        }
+
+        /* 메인 메뉴 hover 효과 - 파란색으로 변경 */
+        nav>ul>li:hover {
+            color: #4a95f5;
+        }
+
+        nav>ul>li>a,
+        nav>ul>li {
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* 서브메뉴 - 세로 박스 형태 */
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #4a95f5;
+            min-width: 160px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            margin-top: 5px;
+        }
+
+        .submenu li {
+            padding: 8px 15px;
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .submenu li:last-child {
+            border-bottom: none;
+        }
+
+        .submenu li a {
+            text-decoration: none;
+            color: #fff !important;
+            display: block;
+            width: 100%;
+        }
+
+        .submenu li:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .submenu li:hover a {
+            color: #fff !important;
+        }
+
+        /* 메인 메뉴에 마우스 오버 시 서브메뉴 표시 */
+        nav li:hover .submenu {
+            display: block;
+        }
+        /* 헤더 끝 */
+        /*메인시작*/
+        main {
+	width: 100%;
+	height: auto;
+    }
+
+        main>div>* {
+            width: 1100px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        main>div:nth-child(1) {
+            width: 100%;
+            height: 36px;
+            background-color: #D5D5D5;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+        }
+
+        main>div:nth-child(1)>div {
+            width: 1100px;
+            margin: 0 auto;
+            font-size: 12px;
+            color: #666;
+        }
+
+        main>div:nth-child(2) {
+            width: 100%;
+            height: 500px;
+            margin-top: 50px;
+            box-sizing: border-box;
+        }
+
+        .main-content {
+            flex: 1;
+        }
+
+        main .top {
+            height: 60px;
+            border-bottom: 2px solid #333;
+            display: flex;
+            align-items: center;
+        }
+
+        main .bottom {
+            width: 100%;
+        }
+
+        main .bottom>p {
+            margin-top: 20px;
+        }
+
+        main .content-wrapper {
+            display: flex;
+            gap: 60px;
+        }
+
+        main .sidebar {
+            width: 200px;
+        }
+
+        main .sidebar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        main .sidebar li {
+            border-bottom: 1px solid #eee;
+        }
+
+        main .sidebar li a {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+        }
+
+        main .sidebar li a:hover {
+            background-color: #f8f9fa;
+            color: #4A90E2;
+        }
+
+        main .sidebar li.active {
+            background-color: #4A90E2;
+        }
+
+        main .sidebar li.active a {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        main .info {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        main .info img {
+            width: 16px;
+            height : auto;
+            margin-right: 5px;
+            /* 이미지와 텍스트 간격 */
+        }
+        /*메인끝*/
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer {
+
+            width: 100%;
+            background-color: #1e2430;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* 공통 내부 영역 */
+        footer .inner {
+            width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* terms */
+        footer .terms-wrap {
+            border-bottom: 1px solid #333;
+            padding: 14px 0;
+        }
+
+        footer .terms-wrap ul {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        footer .terms-wrap li a {
+            color: #eee;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        footer .terms-wrap li a:hover {
+            color: #fff;
+        }
+
+        /* info 영역 */
+        footer .info-wrap {
+            padding: 20px 0;
+        }
+
+        footer .info-wrap .inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        footer .info-left {
+            display: flex;
+            gap: 20px;
+        }
+
+        footer .info-left img {
+            height: 40px;
+            width: auto;
+        }
+
+        footer .info-left .text {
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        footer .info-left .text span {
+            display: block;
+            margin-top: 8px;
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        /* 주요사이트 드롭다운 */
+        footer .site {
+            position: relative;
+        }
+
+        footer .site select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding: 8px 40px 8px 12px;
+            background-color: #121820;
+            border: none;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        footer .site::after {
+            content: "▼";
+            font-size: 12px;
+            color: #bbb;
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+        <header>
+        <div>
+            <div class="top">
+                <p>
+                    <a href="#">HOME&nbsp&nbsp&nbsp|</a>
+                    <a href="#">&nbsp&nbsp&nbsp사이트맵&nbsp&nbsp &nbsp|</a>
+                    <a href="#">&nbsp&nbsp&nbsp로그인&nbsp&nbsp&nbsp|</a>
+                    <a href="#">&nbsp&nbsp&nbsp학생지원</a>
+                </p>
+            </div>
+        </div>
+        <!-- 로고 + 네비게이션 -->
+        <div>
+            <div class="nav-container">
+                <a href="#"><img src="./images/header_logo.png" alt="학교 로고">
+                    <nav>
+                        <ul>
+                            <li>대학소개
+                                <ul class="submenu">
+                                    <li><a href="#">총장 인사말</a></li>
+                                    <li><a href="#">교육이념</a></li>
+                                    <li><a href="#">연혁</a></li>
+                                    <li><a href="#">조직도</a></li>
+                                    <li><a href="#">오시는길</a></li>
+                                </ul>
+                            </li>
+                            <li>입학안내
+                                <ul class="submenu">
+                                    <li><a href="#">공지사항</a></li>
+                                    <li><a href="#">수시모집</a></li>
+                                    <li><a href="#">정시모집</a></li>
+                                    <li><a href="#">편입학</a></li>
+                                    <li><a href="#">입학상담</a></li>
+                                </ul>
+                            </li>
+                            <li>대학·대학원
+                                <ul class="submenu">
+                                    <li><a href="#">인문사회대학</a></li>
+                                    <li><a href="#">자연과학대학</a></li>
+                                    <li><a href="#">공과대학</a></li>
+                                    <li><a href="#">사범대학</a></li>
+                                    <li><a href="#">대학원</a></li>
+                                </ul>
+                            </li>
+                            <li>학사안내
+                                <ul class="submenu">
+                                    <li><a href="#">공지사항</a></li>
+                                    <li><a href="#">학사일정</a></li>
+                                    <li><a href="#">수강신청</a></li>
+                                    <li><a href="#">성적</a></li>
+                                    <li><a href="#">수료 및 졸업</a></li>
+                                    <li><a href="#">자주묻는질문</a></li>
+                                </ul>
+                            </li>
+                            <li>대학생활
+                                <ul class="submenu">
+                                    <li><a href="#">학생회소개</a></li>
+                                    <li><a href="#">동아리/스터디</a></li>
+                                    <li><a href="#">식단안내</a></li>
+                                    <li><a href="#">갤러리</a></li>
+                                </ul>
+                            </li>
+                            <li>커뮤니티
+                                <ul class="submenu">
+                                    <li><a href="#">공지사항</a></li>
+                                    <li><a href="#">뉴스 및 일정</a></li>
+                                    <li><a href="#">취업정보</a></li>
+                                    <li><a href="#">자유게시판</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+            </div>
+        </div>
+    </header>
+    	<main>
+		<div>
+			<div class="info">
+				<span id="test">
+					<img src="./images/ico-home.png" alt="홈 버튼">
+					 > 대학소개 > 총장 인사말 
+				</span>
+			</div>
+		</div>
+		<div>
+			<div class="content-wrapper">
+				<div class="sidebar">
+					<div class="top">
+						<h1>커뮤니티</h1>
+					</div>
+					<div class="bottom">
+						<ul>
+							<li><a href="#">공지사항</a></li>
+							<li class="active"><a href="#">뉴스 및 칼럼</a></li>
+							<li><a href="#">취업정보</a></li>
+							<li><a href="#">자유게시판</a></li>
+							<li><a href="#">질문과 답변</a></li>
+                            <li><a href="#">자료실</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="main-content">
+					<div class="top">
+						<h2>뉴스 및 칼럼</h2>
+					</div>
+					<div class="bottom">
+
+                        <p>
+                            <div class="search-box">
+                                <select name="search-filter" id="search-filter">
+                                    <option value="all">전체 </option>
+                                    <option value="title">제목</option>
+                                    <option value="writer">작성자</option>
+                                </select>
+                                <input type="text" placeholder="검색어를 입력해 주세요">
+                                <button>검색</button>
+                            </div>
+                            <div class="bottom">
+                            <table class="notice-table">
+                                <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>구분</th>
+                                        <th>제목</th>
+                                        <th>작성자</th>
+                                        <th>작성일</th>
+                                        <th>조회</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><span class="category1">공지</span></td>
+                                        <td>정원화(식품자원경제) 교수, AI시대 4차 산업 ...</td>
+                                        <td>정원화</td>
+                                        <td>24.04.09</td>
+                                        <td>160</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><span class="category1">칼럼</span></td>
+                                        <td>주윤정(법학전문대학원) 교수, 기고 - 인공지능, ...</td>
+                                        <td>주윤정</td>
+                                        <td>24.04.09</td>
+                                        <td>160</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><span class="category2">뉴스</span></td>
+                                        <td>그린대, '2024년 2학기 맞춤형 프로그램' ...</td>
+                                        <td>홍보실</td>
+                                        <td>24.04.09</td>
+                                        <td>160</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><span class="category1">보도</span></td>
+                                        <td>김동현(의학) 명예교수, 세상읽기 - 암으로 ...</td>
+                                        <td>김동현</td>
+                                        <td>24.04.09</td>
+                                        <td>160</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="pagination">
+                                <a href="#">&lt;</a>
+                                <a href="#">1</a>
+                                <a href="#">2</a>
+                                <a href="#">3</a>
+                                <a href="#">&gt;</a>
+                            </div>
+                        </div>
+                        </p>
+                        
+					</div>
+				</div>
+			</div>
+		</div>
+        
+	</main>
+    
+        <footer>
+        <!-- 상단 메뉴 -->
+        <div class="terms-wrap">
+            <div class="inner">
+                <ul>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">통합정보시스템</a></li>
+                    <li><a href="#">학사일정</a></li>
+                    <li><a href="#">주요민원 연락처</a></li>
+                    <li><a href="#">교내공지사항</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 학교 정보 + 주요사이트 -->
+        <div class="info-wrap">
+            <div class="inner">
+                <div class="info-left">
+                    <img src="./images/footer_logo.png" alt="그린대학교 로고">
+                    <div class="text">
+                        그린대학교<br>
+                        [12345] 부산광역시 부산진구 부전대로 123 그린대학교<br>
+                        대표전화 : 051-123-1000 | 입학안내 : 051-123-1302 | 팩스 : 051-123-3333<br>
+                        <span>copyright ©Green University All rights reserved.</span>
+                    </div>
+                </div>
+                <div class="site">
+                    <select>
+                        <option>주요사이트 선택</option>
+                        <option>도서관</option>
+                        <option>학생포털</option>
+                        <option>취업정보센터</option>
+                        <option>국제교류센터</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
